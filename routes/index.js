@@ -7,11 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/books', function(req, res, next) {
-  res.render('index', { title: 'Libros' });
+  res.render('books', { title: 'Libros' });
 });
 
 router.get('/add', function(req, res, next) {
-  res.render('index', { title: 'Añadir libro' });
+  res.render('create', { title: 'Añadir libro' });
 });
 
 module.exports = router;
