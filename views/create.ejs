@@ -4,7 +4,23 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/custom/custom.css' />
   </head>
-  <body class="bg-pink-700">
-    <h1>Crear</h1>
+  <body>
+    <div class="h-screen">
+      <%- include('partials/header.ejs') %> 
+      <div>
+        <form action="/books" method="POST">
+          <p>Titulo:</p>
+          <input type="text" name="title" placeholder="Introduce un titulo">
+          <p>Autor:</p>
+          <input type="text" name="autor" placeholder="Introduce un autor">
+          <p>Imagen:</p>
+          <input type="text" name="imagen" placeholder="Introduce una url de una imagen">
+          <p>Descripcion:</p>
+          <textarea name="descrip" placeholder="Introduce una url de una imagen" class="resize-none"></textarea>
+          <button type="submit">Crear libro</button>
+        </form>
+      </div>
+
+    </div>
   </body>
 </html>
