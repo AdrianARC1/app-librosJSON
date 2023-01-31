@@ -1,7 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-let libros = []
+let libros = [
+  {
+    title: "Hola",
+    autor: "Mi tia",
+    imagen: "https://static.vecteezy.com/system/resources/previews/002/820/442/original/aa-logo-monogram-modern-design-template-free-vector.jpg",
+    descrip: "Ninguna xd"
+  },
+  {
+    title: "Hola",
+    autor: "Mi tia",
+    imagen: "https://static.vecteezy.com/system/resources/previews/002/820/442/original/aa-logo-monogram-modern-design-template-free-vector.jpg",
+    descrip: "Ninguna xd"
+  }
+
+]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,6 +46,6 @@ router.post('/books', function(req, res, next) {
   }
   libros.push(nuevoLibro)
   console.log(libros)
-
+  res.redirect("/books")
 });
 module.exports = router;

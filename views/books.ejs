@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Libros</title>
-    <link rel='stylesheet' href='/stylesheets/custom/custom.css' />
-  </head>
-  <%- include('partials/header.ejs') %> 
+<%- include('partials/header.ejs') %> 
 
   <body>
-    <div class="h-screen bg-red-400">
+    <div class="h-screen flex flex-wrap w-full bg-green-500 justify-around">
     <% libros.forEach(function (libro) { %> 
-        <div>
-          <p><%= libro.title %> </p>
-          <p><%= libro.autor %> </p>
-          <img src="<%= libro.imagen %>"></img>
-          <p><%= libro.descrip %> </p>
+        <div class="">
+          <p>Título: <%= libro.title %> </p>
+          <p>Autor: <%= libro.autor %> </p>
+          <img src="<%= libro.imagen %>" class="h-24"></img>
+          <p>Descripcion: <%= libro.descrip %> </p>
         </div>
-      </div>
-
     <% }) %>
+    </div>
+
 
   </body>
 </html>
