@@ -30,15 +30,17 @@ router.post('/books', function(req, res, next) {
 
   if(!title || !autor || !imagen || !descrip){
     res.status(400).send("No te dejes nada vacío")
+  }else{
+    let nuevoLibro={
+      title:title, autor:autor, imagen:imagen, descrip:descrip
+    }
+    libros.push(nuevoLibro)
+    console.log(libros)
+    const libros_arch=JSON.stringify(libros)
+  
+    fs.writeFileSync('libros.json',libros_arch, 'utf-8')
+    res.redirect("/books")
   }
-  let nuevoLibro={
-    title:title, autor:autor, imagen:imagen, descrip:descrip
-  }
-  libros.push(nuevoLibro)
-  console.log(libros)
-  const libros_arch=JSON.stringify(libros)
-
-  fs.writeFileSync('libros.json',libros_arch, 'utf-8')
-  res.redirect("/books")
+  
 });
 module.exports = router;
