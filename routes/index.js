@@ -32,7 +32,7 @@ router.post('/books', function(req, res, next) {
     res.status(400).send("No te dejes nada vacío")
   }else{
     let nuevoLibro={
-      title:title, autor:autor, imagen:imagen, descrip:descrip
+      id:libros.length, title:title, autor:autor, imagen:imagen, descrip:descrip
     }
     libros.push(nuevoLibro)
     console.log(libros)
@@ -43,4 +43,16 @@ router.post('/books', function(req, res, next) {
   }
   
 });
+
+router.get('/delete/:id', function(req, res, next){
+  console.log(req.params.id)
+  console.log(libros[req.params.id].id)
+  let elim = libros[req.params.id].id
+
+
+  const libros_arch = JSON.stringify(libros)
+  fs.writeFileSync('libros.json', libros_arch, 'utf-8')
+
+  res.redirect('/books')
+})
 module.exports = router;
